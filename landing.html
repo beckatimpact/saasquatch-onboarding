@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>
+    Example Landing Page
+</title>
+<script>!function(a,b){a("squatch","https://fast.ssqt.io/squatch-js@2",b)}(function(a,b,c){var d,e,f;c["_"+a]={},c[a]={},c[a].ready=function(b){c["_" + a].ready =  c["_" + a].ready || [];c["_" + a].ready.push(b);},e=document.createElement("script"),e.async=1,e.src=b,f=document.getElementsByTagName("script")[0],f.parentNode.insertBefore(e,f)},this);
+
+  // 1. When squatch.js is ready, run the following function.
+  squatch.ready(function(){
+    // 2. Configure squatch-js for your user and widget.
+    //  The information provided here is used to track your user and register them in SaaSquatch
+    //  This request is authenticated via JWT
+    //  A note about generating JWTs:
+    //    JWT's are tokens that are signed with your tenant API key. They must be generated server-side.
+    //    To ensure the security of your tenant and program, do not expose your tenant API key to your frontend
+    //    For more information see https://docs.saasquatch.com/topics/json-web-tokens/
+    const userConfig = {
+        // 2b. Add details about your user
+        //  This must include id and account id but other fields such as email, first name, locale or even custom fields can be included
+        //  For more details and a list of user fields see https://docs.saasquatch.com/developer/squatchjs/v2/reference#upsertuser
+        user: {                               
+        id: 'referredUser',                      
+        accountId: 'referredUser',
+        firstName: 'Referred',
+        lastName: 'User',       
+        email: 'beck.chan+referred@impact.com',               
+        },
+        // 2c. Add your generated JWT here to authenticate your request
+        jwt:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoicmVmZXJyZWRVc2VyIiwiYWNjb3VudElkIjoicmVmZXJyZWRVc2VyIiwiZmlyc3ROYW1lIjoiUmVmZXJlZCIsImxhc3ROYW1lIjoiVXNlciIsImVtYWlsIjoiYmVjay5jaGFuK3JlZmVycmVyQGltcGFjdC5jb20ifX0.8YAxhE3Q31BWm4KfNWLhsyRQU464KsiRcgRoGBqgL6U'
+    };
+    // 3. Make the request to upsert your user and render your widget.
+    squatch.api().upsertUser(userConfig).then(function(response) {
+        // The widget API automatically inserts the HTML for your widget into your page via an iFrame
+        // However if needed, you can retrieve details about the upserted user and the widget HTML through this function response
+        const user = response.user;
+    }).catch(function(error){
+        console.log(error);
+    });
+  });
+  </script>
+</head>
+<body>
+    <center>
+    <h1>Example Landing Page</h1>
+<h2>
+    <a href="widget.html">Referral Widget</a>
+</h2>
+<h2>
+    <a href="landing.html">Landing Page</a>
+</h2>
+</center>
+</body>
+</html>
