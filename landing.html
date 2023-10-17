@@ -8,7 +8,6 @@
 
 window.squatchTenant = "test_acbdw3cgv8n5m";
 
-
   // 1. When squatch.js is ready, run the following function.
   squatch.ready(function(){
     // 2. Configure squatch-js for your user and widget.
@@ -23,12 +22,14 @@ window.squatchTenant = "test_acbdw3cgv8n5m";
         //  This must include id and account id but other fields such as email, first name, locale or even custom fields can be included
         //  For more details and a list of user fields see https://docs.saasquatch.com/developer/squatchjs/v2/reference#upsertuser
         user: {                               
-        id: 'test',                      
-        accountId: 'test',       
-        email: 'test@example.com',               
+        id: 'referredUser',      
+        accountId: 'referredUser',       
+        email: 'beck.chan+referred@impact.com',               
+        firstName: 'Referred',       
+        lastName: 'User'            
         },
         // 2c. Add your generated JWT here to authenticate your request
-        jwt:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3QiLCJhY2NvdW50SWQiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIn0.jGyNuf43JleAr6M5ZNUztME66nPjMHvCDZqmHwTdMww'
+        jwt:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoicmVmZXJyZWRVc2VyIiwiYWNjb3VudElkIjoicmVmZXJyZWRVc2VyIiwiZW1haWwiOiJiZWNrLmNoYW4rcmVmZXJyZWRAaW1wYWN0LmNvbSIsImZpcnN0TmFtZSI6IlJlZmVycmVkIiwibGFzdE5hbWUiOiJVc2VyIn19.-9-Ks1KMa2OXbXhk-ZIQyI8lVFUhVlPeWSyDeDBtm7Y'
     };
     // 3. Make the request to upsert your user and render your widget.
     squatch.api().upsertUser(userConfig).then(function(response) {
@@ -39,9 +40,10 @@ window.squatchTenant = "test_acbdw3cgv8n5m";
         console.log(error);
     });
   });
-
-
 </script>
+
+
+
 </head>
 <body>
     <center>
