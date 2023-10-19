@@ -33,7 +33,7 @@ window.squatchTenant = "test_acbdw3cgv8n5m";
         // 2c. Add your generated JWT here to authenticate your request
         jwt:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoicmVmZXJyZWRVc2VyIiwiYWNjb3VudElkIjoicmVmZXJyZWRVc2VyIiwiZW1haWwiOiJiZWNrLmNoYW4rcmVmZXJyZWRAaW1wYWN0LmNvbSIsImZpcnN0TmFtZSI6IlJlZmVycmVkIiwibGFzdE5hbWUiOiJVc2VyIn19.-9-Ks1KMa2OXbXhk-ZIQyI8lVFUhVlPeWSyDeDBtm7Y'
     };
-    // 3. Make the request to upsert your user and render your widget.
+    // 3. Make the request to upsert your user
     squatch.api().upsertUser(userConfig).then(function(response) {
         // The widget API automatically inserts the HTML for your widget into your page via an iFrame
         // However if needed, you can retrieve details about the upserted user and the widget HTML through this function response
@@ -41,17 +41,34 @@ window.squatchTenant = "test_acbdw3cgv8n5m";
     }).catch(function(error){
         console.log(error);
     });
-  });
 
-
-  var element = document.getElementById('referralCode');
+    var element = document.getElementById('referralCode');
+     
   squatch.api().squatchReferralCookie().then(function(response) {
     element.value = response.codes["onboarding-referral-program"];
   });
 
+  });
 </script>
 
 
+<!-- <script>
+!function(a,b){a("squatch","https://fast.ssqt.io/squatch-js@2",b)}(function(a,b,c){var d,e,f;c["_"+a]={},c[a]={},c[a].ready=function(b){c["_" + a].ready =  c["_" + a].ready || [];c["_" + a].ready.push(b);},e=document.createElement("script"),e.async=1,e.src=b,f=document.getElementsByTagName("script")[0],f.parentNode.insertBefore(e,f)},this);
+ 
+ squatch.ready(function() {
+  
+   var element = document.getElementById('referralCode');
+  
+   squatch.init({
+     tenantAlias: "test_acbdw3cgv8n5m"
+   });
+      
+   squatch.api().squatchReferralCookie().then(function(response) {
+     element.value = response.codes["onboarding-referral-program"];
+   });
+ });
+ 
+</script> -->
 
 </head>
 <body>
