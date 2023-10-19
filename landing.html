@@ -42,6 +42,13 @@ window.squatchTenant = "test_acbdw3cgv8n5m";
         console.log(error);
     });
   });
+
+
+  var element = document.getElementById('referralCode');
+  squatch.api().squatchReferralCookie().then(function(response) {
+    element.value = response.codes["onboarding-referral-program"];
+  });
+
 </script>
 
 
@@ -50,7 +57,8 @@ window.squatchTenant = "test_acbdw3cgv8n5m";
 <body>
     <center>
     <h1>Example Landing Page</h1>
-    Referred User Created
+    Referral Code:<br>
+    <input type="text" name="Coupon" id="referralCode" value="" /><br><br>
     <br>
     <h2><a href="index.html">Index Page</a></h2>
 </h2>
