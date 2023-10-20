@@ -35,8 +35,6 @@ window.squatchTenant = "test_acbdw3cgv8n5m";
     };
     // 3. Make the request to upsert your user
     squatch.api().upsertUser(userConfig).then(function(response) {
-        // The widget API automatically inserts the HTML for your widget into your page via an iFrame
-        // However if needed, you can retrieve details about the upserted user and the widget HTML through this function response
         const user = response.user;
     }).catch(function(error){
         console.log(error);
